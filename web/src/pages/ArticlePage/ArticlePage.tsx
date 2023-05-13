@@ -11,7 +11,7 @@ const ArticlePage = ({ id }: Props) => {
     <>
       <MetaTags title="Article" description="Article page" />
 
-      <ArticleCell id={id} rand={Math.random()} />
+      <ArticleCell id={id} />
     </>
   )
 }

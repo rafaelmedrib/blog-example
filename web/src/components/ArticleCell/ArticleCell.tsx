@@ -2,10 +2,9 @@ import type { ArticleQuery } from 'types/graphql'
 
 import type { CellSuccessProps, CellFailureProps } from '@redwoodjs/web'
 
-interface Props extends CellSuccessProps<ArticleQuery> {
-  id: number
-  rand: number
-}
+import Article from '../Article/Article'
+
+interface Props extends CellSuccessProps<ArticleQuery> {}
 
 export const QUERY = gql`
   query ArticleQuery($id: Int!) {
@@ -26,12 +25,10 @@ export const Failure = ({ error }: CellFailureProps) => (
   <div style={{ color: 'red' }}>Error: {error?.message}</div>
 )
 
-export const Success = ({ article, id, rand }: Props) => {
+export const Success = ({ article }: Props) => {
   return (
     <>
-      <div>{JSON.stringify(article)}</div>
-      <h1>{id}</h1>
-      <h1>{rand}</h1>
+      <Article article={article} />
     </>
   )
 }
